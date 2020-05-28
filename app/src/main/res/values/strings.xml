@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LISTSAMPLE</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="location_permission_dialog_title">위치 서비스 비활성화</string>
+    <string name="location_permission_dialog_msg">앱을 사용하기 위해서는 위치 서비스가 필요합니다.</string>
+    <string name="dialog_setting_str">설정</string>
+    <string name="dialog_cancel_str">취소</string>
+    <string name="header_title_str">Now</string>
+</resources>

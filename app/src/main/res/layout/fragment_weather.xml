@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.jeon.listsample.ui.wheather.WeatherViewModel" />
+        <variable
+            name="headerData"
+            type="com.jeon.listsample.data.dto.TodayWeather" />
+    </data>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.wheather.WeatherFragment">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary">
+                <include
+                    layout="@layout/item_header"
+                    app:headerData= "@{headerData}"
+                    app:layout_scrollFlags="scroll|enterAlwaysCollapsed"/>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                tools:itemCount="30"
+                tools:listitem="@layout/item_weather" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:visibility="@{viewModel.loading}"
+            android:id="@+id/pr_loading"
+            android:layout_gravity="center"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+    </FrameLayout>
+</layout>

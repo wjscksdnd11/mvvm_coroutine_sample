@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="item"
+            type="com.jeon.listsample.data.dto.DayWeatherItem" />
+        <variable
+            name="viewModel"
+            type="com.jeon.listsample.ui.wheather.WeatherViewModel" />
+        <variable
+            name="position"
+            type="Integer" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:foreground="?attr/selectableItemBackground"
+        android:onClick="@{()->viewModel.itemClick(position)}">
+
+        <ImageView
+            android:id="@+id/iv_item_weather"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:glide="@{item.iconId}"
+            tools:ignore="ContentDescription"
+            tools:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_item_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:textColor="?attr/mainTextColor"
+            android:textSize="15sp"
+            android:text="@{item.week}"
+            app:layout_constraintLeft_toRightOf="@id/iv_item_weather"
+            app:layout_constraintTop_toTopOf="@id/iv_item_weather"
+            tools:text="wed" />
+
+        <TextView
+            android:id="@+id/tv_item_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/mainTextColor"
+            android:textSize="15sp"
+            android:text="@{item.date}"
+            app:layout_constraintLeft_toLeftOf="@id/tv_item_week"
+            app:layout_constraintTop_toBottomOf="@id/tv_item_week"
+            tools:text="5/27" />
+
+        <TextView
+            android:id="@+id/tv_item_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/mainTextColor"
+            android:textSize="18sp"
+            android:text="@{item.description}"
+            app:layout_constraintRight_toLeftOf="@id/guideline"
+            app:layout_constraintLeft_toRightOf="@id/tv_item_date"
+            app:layout_constraintTop_toTopOf="@id/tv_item_week"
+            app:layout_constraintBottom_toBottomOf="@id/tv_item_date"
+            tools:text="clear" />
+
+        <androidx.constraintlayout.widget.Guideline
+            app:layout_constraintGuide_percent="0.7"
+            android:id="@+id/guideline"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_item_temperature_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@{item.min}"
+            android:textColor="?attr/subTextColor"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintRight_toLeftOf="@id/tv_item_temperature_max"
+            app:layout_constraintLeft_toLeftOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="26C" />
+        <TextView
+            android:id="@+id/tv_item_temperature_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@{item.max}"
+            android:textColor="?attr/mainTextColor"
+            app:layout_constraintLeft_toRightOf="@id/tv_item_temperature_min"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="26C" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

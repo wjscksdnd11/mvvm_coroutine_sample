@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="headerData"
+            type="com.jeon.listsample.data.dto.TodayWeather" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/colorPrimary"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tv_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/header_title_str"
+            android:textColor="?attr/mainTextColor"
+            android:textSize="@dimen/header_default_size"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/tv_header_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_header_title"
+            bind:glide="@{headerData.iconId}"
+            tools:src="@mipmap/ic_launcher"
+            bind:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_header_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@{headerData.city}"
+            android:textColor="?attr/subTextColor"
+            android:textSize="@dimen/header_default_size"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Seoul" />
+
+        <TextView
+            android:id="@+id/tv_header_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@{headerData.date}"
+            android:textColor="?attr/mainTextColor"
+            android:textSize="@dimen/header_default_size"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_header_city"
+            tools:text="The 5/25" />
+
+        <TextView
+            android:id="@+id/tv_header_current_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@{headerData.currentTemp}"
+            android:textColor="?attr/mainTextColor"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_header_date"
+            tools:text="24C" />
+
+        <TextView
+            android:id="@+id/tv_header_max_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@{headerData.description}"
+            android:textColor="?attr/mainTextColor"
+            android:textSize="@dimen/header_default_size"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_header_current_temp"
+            tools:text="24C" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
