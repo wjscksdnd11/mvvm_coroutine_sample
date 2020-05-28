@@ -1,8 +1,10 @@
 package com.jeon.listsample.ui.wheather
 
 import android.view.View
-import androidx.lifecycle.*
-import com.jeon.listsample.data.dao.Weather
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.liveData
 import com.jeon.listsample.data.dto.DayWeatherItem
 import com.jeon.listsample.data.dto.TodayWeather
 import com.jeon.listsample.repository.WeatherRepo

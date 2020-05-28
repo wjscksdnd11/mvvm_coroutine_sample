@@ -9,7 +9,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.jeon.listsample.utils.LocationUtils
 
 
 abstract class BaseActivity : AppCompatActivity() {

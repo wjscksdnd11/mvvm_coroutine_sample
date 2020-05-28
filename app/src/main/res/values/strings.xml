@@ -7,4 +7,5 @@
     <string name="dialog_setting_str">설정</string>
     <string name="dialog_cancel_str">취소</string>
     <string name="header_title_str">Now</string>
+    <string name="shared_name">shared_icon</string>
 </resources>

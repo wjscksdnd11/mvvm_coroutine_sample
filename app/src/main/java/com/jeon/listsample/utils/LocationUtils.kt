@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.location.*
 import android.os.Bundle
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.jeon.listsample.data.LocationInfo
 import java.io.IOException

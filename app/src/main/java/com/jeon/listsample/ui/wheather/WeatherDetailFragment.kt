@@ -27,7 +27,7 @@ class WeatherDetailFragment : Fragment() {
     ): View? {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.weather_detail_fragment, container, false)
-        return inflater.inflate(R.layout.weather_detail_fragment, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -37,7 +37,7 @@ class WeatherDetailFragment : Fragment() {
                 it.viewModelStore,
                 ViewModelFactory()
             ).get(WeatherViewModel::class.java)
-
+            binding.cityName = viewModel.headerData.value?.city
             viewModel.detailWeather.observe(this, Observer { item->
                 binding.item = item
             })

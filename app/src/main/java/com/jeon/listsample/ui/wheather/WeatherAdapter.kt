@@ -3,9 +3,6 @@ package com.jeon.listsample.ui.wheather
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.bumptech.glide.RequestManager
-
-import com.jeon.listsample.data.dao.Weather
 import com.jeon.listsample.data.dto.DayWeatherItem
 
 class WeatherAdapter(val viewModel: WeatherViewModel) :

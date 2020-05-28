@@ -31,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/tv_header_icon"
+            android:id="@+id/iv_header_icon"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="10dp"
@@ -39,6 +39,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_header_title"
             bind:glide="@{headerData.iconId}"
             tools:src="@mipmap/ic_launcher"
+            android:transitionName="@string/shared_name"
             bind:ignore="ContentDescription" />
 
         <TextView

@@ -6,7 +6,9 @@
         <variable
             name="item"
             type="com.jeon.listsample.data.dto.DayWeatherItem" />
-
+        <variable
+            name="cityName"
+            type="String" />
     </data>
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -42,6 +44,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_header_title"
                 bind:glide="@{item.iconId}"
+                android:transitionName="@string/shared_name"
                 tools:src="@mipmap/ic_launcher"
                 tools:ignore="ContentDescription" />
 
@@ -50,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:text="@{item.city}"
+                android:text="@{cityName}"
                 android:textColor="?attr/subTextColor"
                 android:textSize="@dimen/header_default_size"
                 app:layout_constraintRight_toRightOf="parent"
@@ -172,7 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_line_spacing"
-                android:text="pressure"
+                android:text="wind speed"
                 android:textColor="?attr/subTextColor"
                 android:textSize="20sp"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -197,7 +200,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_line_spacing"
-                android:text="pressure"
+                android:text="feels like"
                 android:textColor="?attr/subTextColor"
                 android:textSize="20sp"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
