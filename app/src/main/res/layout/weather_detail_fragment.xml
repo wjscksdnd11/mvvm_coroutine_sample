@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/tools">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="item"
             type="com.jeon.listsample.data.dto.DayWeatherItem" />
+
         <variable
             name="cityName"
             type="String" />
     </data>
+
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -44,9 +48,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_header_title"
                 bind:glide="@{item.iconId}"
-                android:transitionName="@string/shared_name"
-                tools:src="@mipmap/ic_launcher"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                tools:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:id="@+id/tv_header_city"
@@ -96,19 +99,21 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_header_current_temp"
                 tools:text="24C" />
+
             <TextView
                 android:id="@+id/tv_heater_description_str"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="description"
+                android:text="@string/weather_detail_description"
                 android:textColor="?attr/subTextColor"
                 android:textSize="20sp"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_header_max_temp"
                 app:layout_constraintRight_toLeftOf="@id/tv_heater_description"
+                app:layout_constraintTop_toBottomOf="@id/tv_header_max_temp"
                 tools:text="description" />
+
             <TextView
                 android:id="@+id/tv_heater_description"
                 android:layout_width="wrap_content"
@@ -116,23 +121,25 @@
                 android:text="@{item.description}"
                 android:textColor="?attr/mainTextColor"
                 android:textSize="20sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_heater_description_str"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_heater_description_str"
-                app:layout_constraintLeft_toRightOf="@id/tv_heater_description_str"
                 tools:text="clear" />
+
             <TextView
                 android:id="@+id/tv_heater_humitidy_str"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_line_spacing"
-                android:text="humitidy"
+                android:text="@string/weather_detail_humitidy"
                 android:textColor="?attr/subTextColor"
                 android:textSize="20sp"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_heater_description_str"
                 app:layout_constraintRight_toLeftOf="@id/tv_heater_humitidy"
+                app:layout_constraintTop_toBottomOf="@id/tv_heater_description_str"
                 tools:text="humitidy" />
+
             <TextView
                 android:id="@+id/tv_heater_humitidy"
                 android:layout_width="wrap_content"
@@ -140,9 +147,9 @@
                 android:text="@{item.humidity}"
                 android:textColor="?attr/mainTextColor"
                 android:textSize="20sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_heater_humitidy_str"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_heater_humitidy_str"
-                app:layout_constraintLeft_toRightOf="@id/tv_heater_humitidy_str"
                 tools:text="25%" />
 
             <TextView
@@ -150,14 +157,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_line_spacing"
-                android:text="pressure"
+                android:text="@string/weather_detail_pressure"
                 android:textColor="?attr/subTextColor"
                 android:textSize="20sp"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_heater_humitidy_str"
                 app:layout_constraintRight_toLeftOf="@id/tv_heater_pressure"
+                app:layout_constraintTop_toBottomOf="@id/tv_heater_humitidy_str"
                 tools:text="pressure" />
+
             <TextView
                 android:id="@+id/tv_heater_pressure"
                 android:layout_width="wrap_content"
@@ -165,9 +173,9 @@
                 android:text="@{item.pressure}"
                 android:textColor="?attr/mainTextColor"
                 android:textSize="20sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_heater_pressure_str"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_heater_pressure_str"
-                app:layout_constraintLeft_toRightOf="@id/tv_heater_pressure_str"
                 tools:text="25%" />
 
             <TextView
@@ -175,14 +183,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_line_spacing"
-                android:text="wind speed"
+                android:text="@string/weather_detail_wind_speed"
                 android:textColor="?attr/subTextColor"
                 android:textSize="20sp"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_heater_pressure_str"
                 app:layout_constraintRight_toLeftOf="@id/tv_heater_wind_speed"
+                app:layout_constraintTop_toBottomOf="@id/tv_heater_pressure_str"
                 tools:text="wind speed" />
+
             <TextView
                 android:id="@+id/tv_heater_wind_speed"
                 android:layout_width="wrap_content"
@@ -190,9 +199,9 @@
                 android:text="@{item.windSpeed}"
                 android:textColor="?attr/mainTextColor"
                 android:textSize="20sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_heater_wind_speed_str"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_heater_wind_speed_str"
-                app:layout_constraintLeft_toRightOf="@id/tv_heater_wind_speed_str"
                 tools:text="9.4m/s" />
 
             <TextView
@@ -200,14 +209,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_line_spacing"
-                android:text="feels like"
+                android:text="@string/weather_deatil_feels_like"
                 android:textColor="?attr/subTextColor"
                 android:textSize="20sp"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_heater_wind_speed_str"
                 app:layout_constraintRight_toLeftOf="@id/tv_heater_feels_like"
+                app:layout_constraintTop_toBottomOf="@id/tv_heater_wind_speed_str"
                 tools:text="feels like" />
+
             <TextView
                 android:id="@+id/tv_heater_feels_like"
                 android:layout_width="wrap_content"
@@ -215,9 +225,9 @@
                 android:text="@{item.feelsLike}"
                 android:textColor="?attr/mainTextColor"
                 android:textSize="20sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_heater_feels_like_str"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_heater_feels_like_str"
-                app:layout_constraintLeft_toRightOf="@id/tv_heater_feels_like_str"
                 tools:text="24c" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

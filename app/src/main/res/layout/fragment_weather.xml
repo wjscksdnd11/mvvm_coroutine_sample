@@ -7,6 +7,7 @@
         <variable
             name="headerData"
             type="com.jeon.listsample.data.dto.TodayWeather" />
+        <import type="android.view.View"/>
     </data>
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,12 +15,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.wheather.WeatherFragment">
-
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/colorPrimary">
@@ -46,11 +47,11 @@
                 tools:itemCount="30"
                 tools:listitem="@layout/item_weather" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
-        <androidx.core.widget.ContentLoadingProgressBar
-            android:visibility="@{viewModel.loading}"
+        <ProgressBar
             android:id="@+id/pr_loading"
+            android:backgroundTint="@color/colorAccent"
             android:layout_gravity="center"
-            android:layout_width="30dp"
-            android:layout_height="30dp"/>
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
     </FrameLayout>
 </layout>

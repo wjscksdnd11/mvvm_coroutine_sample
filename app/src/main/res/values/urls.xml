@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="weather_url">http://openweathermap.org/img/wn/%s@2x.png</string>
+    <string name="weather_url" translatable="false">https://openweathermap.org/img/wn/%s@2x.png</string>
 </resources>

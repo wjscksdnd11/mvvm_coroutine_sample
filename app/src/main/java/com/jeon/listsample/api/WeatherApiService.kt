@@ -14,7 +14,7 @@ interface WeatherApiService {
         @Query("lat") lat: String,
         @Query("lon") lon: String,
         @Query("appid") part:String = BuildConfig.WeatherAPIKey,
-        @Query("lang") lang:String = Locale.getDefault().language,
+        @Query("lang") lang:String = Locale.getDefault().country,
         @Query("units") units:String = "metric"
     ): WeatherInfo
 

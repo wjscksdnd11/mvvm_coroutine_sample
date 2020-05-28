@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">mvvm_coroutine</string>
+    <string name="location_permission_dialog_title">위치 서비스 비활성화</string>
+    <string name="location_permission_dialog_msg">앱을 사용하기 위해서는 위치 서비스가 필요합니다.</string>
+    <string name="dialog_setting_str">설정</string>
+    <string name="dialog_cancel_str">취소</string>
+    <string name="header_title_str">현재</string>
+    <string name="shared_name">shared_icon</string>
+    <string name="weather_detail_description">요약</string>
+    <string name="weather_detail_humitidy">습도</string>
+    <string name="weather_detail_pressure">기압</string>
+    <string name="weather_detail_wind_speed">풍속</string>
+    <string name="weather_deatil_feels_like">체감온도</string>
+</resources>
