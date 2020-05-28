@@ -18,6 +18,7 @@ class WeatherViewHolder(private val binding: ItemWeatherBinding,val viewModel: W
     }
     fun bind(item: DayWeatherItem){
         binding.item = item
+        binding.position = adapterPosition
         binding.viewModel = viewModel
     }
 

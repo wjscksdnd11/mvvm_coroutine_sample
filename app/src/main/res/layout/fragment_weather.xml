@@ -23,10 +23,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/colorPrimary">
-                <include
-                    layout="@layout/item_header"
-                    app:headerData= "@{headerData}"
-                    app:layout_scrollFlags="scroll|enterAlwaysCollapsed"/>
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+                    <include
+                        layout="@layout/item_header"
+                        app:headerData= "@{headerData}"
+                        />
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
             </com.google.android.material.appbar.AppBarLayout>
 
             <androidx.recyclerview.widget.RecyclerView
