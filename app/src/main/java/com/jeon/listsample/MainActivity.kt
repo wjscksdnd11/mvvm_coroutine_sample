@@ -29,18 +29,15 @@ class MainActivity : BaseActivity() {
         })
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        if(supportFragmentManager.backStackEntryCount==1){
-            finish()
-        }
-    }
-
     private fun moveFragment(fragment: Fragment){
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, fragment)
-            .addToBackStack("tag")
-            .commit()
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.container, fragment)
+            if(fragment !is WeatherFragment){
+                addToBackStack("tag")
+            }
+            commit()
+        }
+
     }
 
 

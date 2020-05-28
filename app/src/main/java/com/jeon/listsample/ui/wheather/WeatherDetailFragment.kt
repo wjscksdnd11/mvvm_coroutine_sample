@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.jeon.listsample.R
 import com.jeon.listsample.ViewModelFactory
@@ -36,7 +37,10 @@ class WeatherDetailFragment : Fragment() {
                 it.viewModelStore,
                 ViewModelFactory()
             ).get(WeatherViewModel::class.java)
-            binding.viewModel = viewModel
+
+            viewModel.detailWeather.observe(this, Observer { item->
+                binding.item = item
+            })
         }
 
     }
