@@ -1,5 +1,6 @@
 package com.jeon.listsample.repository
 
+import androidx.lifecycle.asLiveData
 import com.jeon.listsample.data.LocationInfo
 import com.jeon.listsample.data.dao.WeatherInfo
 import com.jeon.listsample.data.dto.DayWeatherItem
@@ -7,6 +8,7 @@ import com.jeon.listsample.data.dto.TodayWeather
 import com.jeon.listsample.source.DataSource
 import com.jeon.listsample.utils.toDayWeatherItem
 import com.jeon.listsample.utils.toTodayItem
+import kotlinx.coroutines.flow.asFlow
 
 class WeatherRepo( private val remoteSource: DataSource) :
     WeatherRepository {

@@ -1,9 +1,12 @@
 package com.jeon.listsample.ui.wheather
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -40,8 +43,8 @@ class WeatherFragment : Fragment() {
                     binding.headerData = data
                 }
             })
-            viewModel.loading.observe(this, Observer {isShow->
-                pr_loading.visibility = if(isShow) View.VISIBLE else View.GONE
+            viewModel.loading.observe(this, Observer { isShow ->
+                pr_loading.visibility = if (isShow) View.VISIBLE else View.GONE
             })
             viewModel.weatherList.observe(this, Observer { list ->
                 if (recyclerview.adapter == null) {
@@ -49,6 +52,22 @@ class WeatherFragment : Fragment() {
                     recyclerview.itemAnimator = DefaultItemAnimator()
                 }
                 (recyclerview.adapter as? WeatherAdapter)?.submitList(list)
+            })
+            viewModel.errorMessage.observe(this, Observer { msg ->
+                Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show()
+                AlertDialog.Builder(activity)
+                    .setMessage(msg)
+                    .setNegativeButton("종료") { dialog, _ ->
+                        dialog.dismiss()
+                        dialog.dismiss()
+                        activity?.finish()
+                    }
+                    .setPositiveButton("재시도")
+                    { dialog, _ ->
+                        viewModel.loadData()
+                        dialog.dismiss()
+                    }
+                    .show()
             })
         }
     }

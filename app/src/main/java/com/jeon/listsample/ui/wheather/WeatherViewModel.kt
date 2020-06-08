@@ -1,27 +1,34 @@
 package com.jeon.listsample.ui.wheather
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
+import androidx.lifecycle.*
 import com.jeon.listsample.data.dto.DayWeatherItem
 import com.jeon.listsample.data.dto.TodayWeather
 import com.jeon.listsample.repository.WeatherRepo
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class WeatherViewModel(private val weatherRepo: WeatherRepo) : ViewModel() {
 
     private val _loading = MutableLiveData<Boolean>(true)
     val loading:LiveData<Boolean> = _loading
     val headerData: MutableLiveData<TodayWeather?> = MutableLiveData()
-    val weatherList: LiveData<List<DayWeatherItem>?> = liveData(Dispatchers.IO) {
-        showLoading()
-        emit(weatherRepo.getWeekWeathers())
-        headerData.postValue(weatherRepo.getCurrentWeather(false))
-        hideLoading()
+    val errorMessage = MutableLiveData<String>()
+    val weatherList :MutableLiveData<List<DayWeatherItem>?> = MutableLiveData()
 
+    fun loadData()= viewModelScope.launch (Dispatchers.IO){
+        showLoading()
+        try {
+            weatherList.postValue(weatherRepo.getWeekWeathers())
+            headerData.postValue(weatherRepo.getCurrentWeather(false))
+        } catch (e:Exception){
+            errorMessage.postValue(e.message)
+        }
+        hideLoading()
     }
 
+    init {
+        loadData()
+    }
     val detailWeather = MutableLiveData<DayWeatherItem>()
 
     private fun showLoading() {
