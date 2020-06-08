@@ -57,12 +57,12 @@ class WeatherFragment : Fragment() {
                 Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show()
                 AlertDialog.Builder(activity)
                     .setMessage(msg)
-                    .setNegativeButton("종료") { dialog, _ ->
+                    .setNegativeButton(getString(R.string.dialog_finish_str)) { dialog, _ ->
                         dialog.dismiss()
                         dialog.dismiss()
                         activity?.finish()
                     }
-                    .setPositiveButton("재시도")
+                    .setPositiveButton(getString(R.string.dialog_retry_str))
                     { dialog, _ ->
                         viewModel.loadData()
                         dialog.dismiss()

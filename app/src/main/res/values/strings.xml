@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">mvvm_coroutine</string>
     <string name="location_permission_dialog_title">Disable location services</string>
-    <string name="location_permission_dialog_msg">앱을 사용하기 위해서는 위치 서비스가 필요합니다.</string>
-    <string name="dialog_setting_str">설정</string>
+    <string name="location_permission_dialog_msg">we need to location permission</string>
+    <string name="dialog_setting_str">setting</string>
     <string name="dialog_cancel_str" tools:ignore="ButtonCase">cancel</string>
     <string name="header_title_str">Now</string>
     <string name="shared_name" translatable="false">shared_icon</string>
@@ -11,4 +11,6 @@
     <string name="weather_detail_pressure">pressure</string>
     <string name="weather_detail_wind_speed">wind speed</string>
     <string name="weather_deatil_feels_like">feels like</string>
+    <string name="dialog_finish_str">finish</string>
+    <string name="dialog_retry_str">retry</string>
 </resources>

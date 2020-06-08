@@ -12,4 +12,6 @@
     <string name="weather_detail_pressure">기압</string>
     <string name="weather_detail_wind_speed">풍속</string>
     <string name="weather_deatil_feels_like">체감온도</string>
+    <string name="dialog_finish_str">종료</string>
+    <string name="dialog_retry_str">재시도</string>
 </resources>
